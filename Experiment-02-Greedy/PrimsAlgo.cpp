@@ -2,7 +2,7 @@
 using namespace std;
 #define V 5
 
-int minKey(int key[V], bool mstSet[V])
+int minKey(int key[V], bool mstSet[V]) //* Find Minimum Index Key
 {
     int min = INT_MAX, minInd;
     for (int i = 0; i < V; i++)
@@ -25,22 +25,23 @@ void printMST(int parent[], int graph[V][V])
 
 void primsAlgo(int graph[V][V])
 {
-    bool mstSet[V];
-    int key[V], parent[V];
+    bool mstSet[V]; //* To Check if Node is Visited or not
+    int key[V];     //* Key is used to find current minimum key
+    int parent[V];  //* Parent is used to store Minimum Spanning Tree Order
 
-    for (int i = 1; i < V; i++)
+    for (int i = 1; i < V; i++) //* setting initially the Key[i] as Infinity and Visited[i] = false
     {
         key[i] = INT_MAX;
         mstSet[i] = false;
     }
 
-    key[0] = 0;
+    key[0] = 0; //* First Node is Source
     parent[0] = -1;
 
     for (int c = 0; c < V - 1; c++)
     {
-        int m = minKey(key, mstSet);
-        mstSet[m] = true;
+        int m = minKey(key, mstSet); //* Finding Minimum Key
+        mstSet[m] = true;            //* Visited is set true for specific minimum key
 
         for (int n = 0; n < V; n++)
         {
