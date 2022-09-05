@@ -26,18 +26,25 @@ int main()
         x -= 1;
     }
 
+    cout << "Please enter the Compression or Expansion number. If you want to exit give input as -1." << endl;
     cout << "PRINTNG THE MATRIX" << endl;
-    i = 90;
-    for (int j = 0; j < 100; j++)
+
+    int pos = 90;
+    while (pos != -1)
     {
-        for (int k = 0; k < 100; k++)
+        i = pos;
+        for (int j = 0; j < 100; j++)
         {
-            if (arr[i][j][k] != 0)
-                cout << arr[i][j][k] << " ";
-            else
-                continue;
+            for (int k = 0; k < 100; k++)
+            {
+                if (arr[i][j][k] != 0)
+                    cout << arr[i][j][k] << " ";
+                else
+                    continue;
+            }
+            cout << endl;
         }
         cout << endl;
+        cin >> pos;
     }
-    cout << endl;
 }
