@@ -22,11 +22,6 @@ class Main {
             e.printStackTrace();
         }
 
-        // Iterator<Stock> itr = arr.iterator();
-        // while (itr.hasNext()) {
-        // System.out.println(itr.next());
-        // }
-
         Stock.BruteForce(arr);
 
         Stock s = new Stock();
