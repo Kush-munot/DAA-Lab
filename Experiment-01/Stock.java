@@ -56,14 +56,7 @@ public class Stock {
         }
     }
 
-    public void max_min(ArrayList<Stock> lst, int i, int j) {
-
-        Double arr[] = new Double[23];
-        int l = 0;
-        Iterator<Stock> itr = lst.iterator();
-        while (itr.hasNext()) {
-            arr[l] = itr.next().close;
-        }
+    public void max_min(double[] arr, int i, int j) {
 
         if (i == j) {
             mini = arr[i];
@@ -73,17 +66,25 @@ public class Stock {
             maxi = max(arr[i], arr[j]);
         } else {
             int mid = (i + j) / 2;
-            max_min(lst, i, mid);
+            max_min(arr, i, mid);
             min1 = mini;
             max1 = maxi;
-            max_min(lst, mid + 1, j);
+            max_min(arr, mid + 1, j);
             mini = min(mini, min1);
             maxi = max(maxi, max1);
         }
     }
-    public void DAC(ArrayList<Stock> arr, int i, int j){
-        Collections.sort(arr, new sortOnClosing());
-        max_min(arr, 0, 21);
+    public void DAC(ArrayList<Stock> lst, int i, int j){
+        Collections.sort(lst, new sortOnClosing());
+
+        double arr[] = new double[23];
+        int l = 0;
+        Iterator<Stock> itr = lst.iterator();
+        while (itr.hasNext()) {
+            arr[l] = itr.next().close;
+        }
+
+        max_min(arr, 0, 22);
         System.out.println("Divide and Conquer Approach");
         System.out.println("Maximum Stock Price is = " + maxi);
         System.out.println("Minimum Stock Price is = " + mini);
