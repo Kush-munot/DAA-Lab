@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define V 5
+#define V 6
 
 int minKey(int key[V], bool mstSet[V]) //* Find Minimum Index Key
 {
@@ -16,14 +16,14 @@ int minKey(int key[V], bool mstSet[V]) //* Find Minimum Index Key
     return minInd;
 }
 
-void printMST(int parent[], int graph[V][V])
+void printMST(int parent[], double graph[V][V])
 {
     cout << "Edge \tWeight\n";
     for (int i = 1; i < V; i++)
         cout << parent[i] << " - " << i << " \t" << graph[i][parent[i]] << " \n";
 }
 
-void primsAlgo(int graph[V][V])
+void primsAlgo(double graph[V][V])
 {
     bool mstSet[V]; //* To Check if Node is Visited or not
     int key[V];     //* Key is used to find current minimum key
@@ -57,23 +57,11 @@ void primsAlgo(int graph[V][V])
 
 int main()
 {
-    /* Let us create the following graph
-        2 3
-    (0)--(1)--(2)
-    | / \ |
-    6| 8/ \5 |7
-    | / \ |
-    (3)-------(4)
-            9     */
-    int graph[V][V] = {{0, 2, 0, 6, 0},
-                       {2, 0, 3, 8, 5},
-                       {0, 3, 0, 0, 7},
-                       {6, 8, 0, 0, 9},
-                       {0, 5, 7, 9, 0}};
+    double graph[V][V] = {
+        {0, 427.50202366902516, 385.2763086761522, 351.6311760175055, 419.1135964192494},
+        {427.50202366902516, 0, 74.550293671268, 87.48224082988976, 9.979747789152853},
+        {385.2763086761522, 74.550293671268, 0, 102.55989455322387, 74.1264796790887},
+        {351.6311760175055,87.48224082988976, 102.55989455322387, 0, 77.55690666294466},
+        {419.1135964192494, 9.979747789152853, 74.1264796790887,77.55690666294466, 0}};
     primsAlgo(graph);
-
-    /*
-    A - 2 99 6 99
-    B - - 99 6 99
-  */
 }
