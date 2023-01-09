@@ -74,7 +74,6 @@ public class Stock {
     }
 
     public void DAC(ArrayList<Stock> lst, int i, int j) {
-        //Collections.sort(lst, new sortOnClosing());
 
         double arr[] = new double[23];
         int l = 0;
